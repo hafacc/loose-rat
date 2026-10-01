@@ -21,7 +21,7 @@
     "@biomejs/biome": "^2.5.14",
     "@ethereumjs/trie": "^6.2.1",
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/bun": "^1.4.0",
+    "@types/bun": "^1.4.2",
     "@types/node": "^26.4.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",

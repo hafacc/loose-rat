@@ -10,7 +10,7 @@
       "*.js",
       "*.json",
       "*.ts",
-      "*.html",
+      "src/**/*.html",
       "src/**/*.ts",
       "src/**/*.svelte",
       "src/**/*.css",
@@ -309,7 +309,7 @@
       }
     },
     {
-      "includes": ["index.html"],
+      "includes": ["src/app.html"],
       "linter": {
         "rules": {
           "nursery": {

@@ -6,6 +6,8 @@ export interface Query {
   dialects: readonly string[];
   /** typed word or phrase */
   query: string;
+  /** address of the word list */
+  words: string;
 }
 
 /** A longer word that splits into the query and another word. */

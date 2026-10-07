@@ -8,21 +8,14 @@
     >
     <meta name="description" content="Get a little help creating loose RATs">
     <title>Loose RAT Helper</title>
-    <link rel="icon" href="./favicon.svg">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      crossorigin
-      href="/node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2"
-    >
-    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    %sveltekit.head%
   </head>
   <body
     class="fixed bottom-0 size-full touch-none overscroll-contain transition-all"
   >
-    <div id="root" class="h-full"></div>
-    <script src="/src/main.ts" type="module"></script>
+    <div class="h-full">%sveltekit.body%</div>
   </body>
 </html>

@@ -13,7 +13,7 @@ bun install
 bun dev        # serve locally
 bun lint       # type check, lint and format check
 bun test
-bun run build  # write the site to dist/
+bun run build  # write the site to build/
 bun run data   # rebuild the word list from its sources
 ```
 

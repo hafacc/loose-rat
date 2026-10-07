@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onDestroy, type Snippet } from "svelte";
   import type { SvelteSet } from "svelte/reactivity";
+  // imported here rather than by the worker so the offline copy of the site includes it
+  import wordsUrl from "../data/words.txt?url";
   import type { EntryData, Query, Result } from "../lib/types";
   import Entry from "./entry.svelte";
 
@@ -56,9 +58,10 @@
     return () => visualViewport?.removeEventListener("resize", resize);
   });
 
-  let latest: Query = { id: 0, dialects: [], query: "" };
-  let worker = spawnWorker();
-  onDestroy(() => worker.terminate());
+  let latest: Query = { id: 0, dialects: [], query: "", words: wordsUrl };
+  // started by the first search, since only a browser has workers
+  let worker: Worker | undefined;
+  onDestroy(() => worker?.terminate());
 
   function spawnWorker(): Worker {
     const spawned = new Worker(new URL("../lib/worker.ts", import.meta.url), {
@@ -75,7 +78,7 @@
   function onFailure(): void {
     searching = false;
     failed = true;
-    worker.terminate();
+    worker?.terminate();
     worker = spawnWorker();
   }
 
@@ -94,9 +97,15 @@
 
   $effect(() => {
     if (!paused) {
-      latest = { id: latest.id + 1, dialects: [...dialects], query: search };
+      latest = {
+        ...latest,
+        id: latest.id + 1,
+        dialects: [...dialects],
+        query: search,
+      };
       failed = false;
       searching = true;
+      worker ??= spawnWorker();
       worker.postMessage(latest);
     }
   });

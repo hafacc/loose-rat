@@ -1,5 +1,4 @@
 import dialectRules from "../data/dialects.json" with { type: "json" };
-import wordsUrl from "../data/words.txt?url";
 import { buildSubstitution } from "./dialects.ts";
 import {
   buildIndex,
@@ -12,15 +11,15 @@ import type { Query, Result } from "./types.ts";
 
 const CACHE_SIZE = 3;
 
-async function load(): Promise<Words> {
-  const response = await fetch(wordsUrl);
+async function load(url: string): Promise<Words> {
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`word list: ${response.status} ${response.statusText}`);
   }
   return parseWords(await response.text());
 }
 
-const wordsPromise = load();
+let wordsPromise: Promise<Words> | undefined;
 
 // most recently used last
 const indexCache = new Map<string, Index>();
@@ -48,6 +47,7 @@ addEventListener("message", async (event: MessageEvent<Query>) => {
   const { dialects, query } = event.data;
   let result: Result;
   try {
+    wordsPromise ??= load(event.data.words);
     const words = await wordsPromise;
     const matches = search(words, getIndex(dialects, words), query);
     result = { ...matches, ...event.data };

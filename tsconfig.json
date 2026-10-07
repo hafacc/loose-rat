@@ -1,24 +1,9 @@
 {
+  "extends": "$app/tsconfig",
   "compilerOptions": {
-    "target": "es2024",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "types": ["bun", "vite/client", "svelte"],
-    "strict": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "forceConsistentCasingInFileNames": true
+    "types": ["$app/types", "vite/client", "bun"],
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.svelte",
-    "scripts/**/*.ts",
-    "tests/**/*.ts",
-    "*.ts"
-  ]
+  "include": ["src", "scripts", "tests", "*"],
+  "exclude": ["src/service-worker.ts"]
 }

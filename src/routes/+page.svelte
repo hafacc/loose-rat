@@ -1,9 +1,9 @@
 <script lang="ts">
   import { SvelteSet } from "svelte/reactivity";
-  import DialectMenu from "./components/dialect-menu.svelte";
-  import Rat from "./components/rat.svelte";
-  import Search from "./components/search.svelte";
-  import { ALL_DIALECTS } from "./lib/dialect-groups.ts";
+  import DialectMenu from "../components/dialect-menu.svelte";
+  import Rat from "../components/rat.svelte";
+  import Search from "../components/search.svelte";
+  import { ALL_DIALECTS } from "../lib/dialect-groups.ts";
 
   const DIALECT_KEY = "dialects";
 

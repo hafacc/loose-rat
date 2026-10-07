@@ -27,7 +27,7 @@ jobs:
         if: github.event.workflow_run.conclusion == 'success'
         run: gh pr merge --squash --match-head-commit "$HEAD_SHA" "$BRANCH"
       - if: steps.merge.outcome == 'success'
-        run: gh workflow run nextjs.yml --ref main
+        run: gh workflow run deploy.yml --ref main
       # a cancelled build or a pull request that has since moved on gets another run, so
       # neither is worth a mention
       - if: failure() || github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.conclusion == 'timed_out'

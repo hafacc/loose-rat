@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: ["main"]
   workflow_call:
+    inputs:
+      upload-pages:
+        type: boolean
+        default: false
 
 jobs:
   build:
@@ -16,3 +20,8 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun lint
       - run: bun test
+      - run: bun run build
+      - if: inputs.upload-pages
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./dist

@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  /* preloaded by index.html, so waiting beats a flash of the fallback */
+  font-display: block;
+  font-weight: 200 800;
+  src: url("@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2")
+    format("woff2-variations");
+}
+
+/* phonetic letters, which the display face lacks */
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("@fontsource/noto-sans/files/noto-sans-latin-ext-400-normal.woff2")
+    format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* theta */
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("@fontsource/noto-sans/files/noto-sans-greek-400-normal.woff2")
+    format("woff2");
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+@theme inline {
+  --font-sans: "Bricolage Grotesque", "Noto Sans", ui-sans-serif, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-mark: var(--mark);
+  --color-mark-foreground: var(--mark-foreground);
+  --color-sheet: var(--sheet);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-badge: var(--badge);
+  --color-badge-foreground: var(--badge-foreground);
+  --color-backdrop: var(--backdrop);
+  --color-destructive: var(--destructive);
+  --shadow-hard: 0 4px 0 var(--edge);
+  --shadow-hard-sm: 0 3px 0 var(--edge);
+}
+
+/* day: a yellow page with charcoal ink and white paper for anything raised */
+:root {
+  color-scheme: light dark;
+  --background: #ffd23f;
+  --foreground: #26242b;
+  --muted-foreground: #5c5330;
+  --card: #ffffff;
+  --card-foreground: #26242b;
+  --mark: #ffffff;
+  --mark-foreground: #26242b;
+  --sheet: #fff7d6;
+  --primary: #26242b;
+  --primary-foreground: #ffd23f;
+  --badge: #ff5d73;
+  --badge-foreground: #ffffff;
+  --backdrop: #26242b;
+  --destructive: #c81e3a;
+  --edge: #26242b;
+  --stripe: #ffd23f;
+}
+
+/* night: the yellow moves off the page and onto what day keeps white, so the
+   marks, tags and search box glow against a dark brown */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1d1a12;
+    --foreground: #fff3c4;
+    --muted-foreground: #a89a63;
+    --card: #ffd23f;
+    --card-foreground: #1d1a12;
+    --mark: #ffd23f;
+    --mark-foreground: #1d1a12;
+    --sheet: #2a2619;
+    --primary: #ffd23f;
+    --primary-foreground: #1d1a12;
+    --badge: #ff5d73;
+    --badge-foreground: #1d1a12;
+    --backdrop: #000000;
+    --destructive: #ff8a9b;
+    --edge: #8f6f0a;
+    --stripe: #8f6f0a;
+  }
+}
+
+/* a group with only some of its dialects on */
+@utility stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--stripe) 0 6px,
+    var(--sheet) 6px 12px
+  );
+}

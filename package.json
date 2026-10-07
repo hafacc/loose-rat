@@ -1,6 +1,7 @@
 {
   "name": "loose-rat",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "fmt": "biome format --write",

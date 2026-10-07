@@ -1,34 +1,32 @@
 {
+  "private": true,
   "name": "loose-rat",
   "version": "0.1.0",
+  "description": "A helper for creating loose remote associates tests.",
   "license": "MIT",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "fmt": "biome format --write",
-    "dev": "next dev",
-    "export": "next build",
-    "start": "next start",
-    "lint": "tsc && biome check"
-  },
-  "dependencies": {
-    "@formkit/auto-animate": "^0.10.0",
-    "mnemonist": "^0.40.5",
-    "next": "^16.3.4",
-    "react": "^19.2.8",
-    "react-dom": "^19.3.0",
-    "react-icons": "^5.7.0"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "svelte-check --fail-on-warnings && biome check --error-on-warnings",
+    "fmt": "biome check --write",
+    "test": "bun test",
+    "data": "bun scripts/build-data.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.14",
-    "@ethereumjs/trie": "^6.2.1",
-    "@tailwindcss/postcss": "^4.3.3",
+    "@biomejs/biome": "^2.5.15",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/noto-sans": "^5.3.0",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/bun": "^1.4.2",
-    "@types/node": "^26.6.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.3.0",
-    "postcss": "^8.5.26",
+    "mnemonist": "^0.40.5",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
     "tailwindcss": "^4.3.3",
-    "trie-search": "^2.2.1",
-    "typescript": "^7.0.2"
+    "typescript": "~6.0.3",
+    "vite": "^8.3.3",
+    "vite-plugin-pwa": "^2.0.0"
   }
 }

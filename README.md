@@ -1,10 +1,10 @@
 # Loose RAT
 
-[![build](https://github.com/hafaio/loose-rat/actions/workflows/build.yml/badge.svg)](https://github.com/hafaio/loose-rat/actions/workflows/build.yml)
+[![build](https://github.com/hafacc/loose-rat/actions/workflows/build.yml/badge.svg)](https://github.com/hafacc/loose-rat/actions/workflows/build.yml)
 
 A helper for creating loose [RATs](https://en.wikipedia.org/wiki/Remote_Associates_Test), with selectable dialects for looser phonetic matching.
 
-Live at [hafaio.github.io/loose-rat](https://hafaio.github.io/loose-rat/).
+Live at [hafa.cc/loose-rat](https://hafa.cc/loose-rat/).
 
 ## ToDo
 

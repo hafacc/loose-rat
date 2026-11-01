@@ -24,7 +24,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/bun": "^1.4.2",
     "mnemonist": "^0.40.6",
-    "svelte": "^5.57.1",
+    "svelte": "^5.57.3",
     "svelte-check": "^4.7.7",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",
